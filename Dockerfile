@@ -11,3 +11,6 @@ RUN pip3 install --no-cache-dir awscli==1.9.2 \
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		jq \
 	&& rm -rf /var/lib/apt/lists/*
+
+# create mount for config files
+VOLUME /root/.aws
