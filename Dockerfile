@@ -12,5 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		jq \
 	&& rm -rf /var/lib/apt/lists/*
 
+ADD dot.bashrc /root/.bashrc
+
 # create mount for config files
 VOLUME /root/.aws
