@@ -10,6 +10,8 @@ RUN pip3 install --no-cache-dir awscli==1.9.2 \
 # install tools we need for the labs
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		jq \
+		groff \
+		less \
 	&& rm -rf /var/lib/apt/lists/*
 
 # some customisations for the shell environment
