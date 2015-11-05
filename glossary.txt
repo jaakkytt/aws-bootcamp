@@ -1,10 +1,28 @@
-Cloud:	A cloud is a visible mass of liquid droplets or frozen crystals.
+Cloud:					A cloud is a visible mass of liquid droplets or frozen crystals.
 
 AWS:					Amazon Web Service
-AWS access key ID & secret access key: 	A key pairs that is used to sign AWS requests.
+AWS access key ID & secret access key: 	A key pairs that is used to sign AWS requests
 AWS EC2:				Elastic Compute Cloud
+AWS S3:					Simple Storage Service
 AWS EBS:				Elastic Block Store
 AWS region:				A named set of AWS resources in the same geographical area
-AWS Availability Zone:			A distinct isolated location within a region.
-AWS VPC:				Virtual private cloud.
-AWS VPC:				Virtual private cloud.
+AWS Availability Zone:			A distinct isolated location within a region
+AWS VPC:				Virtual private clouda
+AWS AMI:				Amazon Machine Image
+AWS security group:			Virtual firewall
+AWS IAM:				Identity and Access Management
+AWS Instance profile:			Container for an IAM role within EC2 instance
+AWS ELB:				Elastic Load Balancing
+AWS subnet:				A segment of the IP address within VPC
+AWS route table:			Network traffic direction rules 
+AWS userdata:				Commands executed at linux instance launch
+AWS instance metadata:			Information about instance (http://169.254.169.254/latest/meta-data/)
+
+Terraform:				Infrastrcture provisioning tool
+Terraform resource:			Infrastructure components
+
+Packer:					Image creation tool
+
+Curl-loader:				Web application hammering tool
+
+
