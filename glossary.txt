@@ -1,0 +1,10 @@
+Cloud:	A cloud is a visible mass of liquid droplets or frozen crystals.
+
+AWS:					Amazon Web Service
+AWS access key ID & secret access key: 	A key pairs that is used to sign AWS requests.
+AWS EC2:				Elastic Compute Cloud
+AWS EBS:				Elastic Block Store
+AWS region:				A named set of AWS resources in the same geographical area
+AWS Availability Zone:			A distinct isolated location within a region.
+AWS VPC:				Virtual private cloud.
+AWS VPC:				Virtual private cloud.

@@ -1,0 +1,4 @@
+$ echo "Don't panic"
+$ wget -qO install.sh https://get.docker.com/ && less install.sh
+$ bash install.sh 
+
