@@ -2,7 +2,7 @@ $ echo "Don't panic"
 $ wget -qO install.sh https://get.docker.com/ && less install.sh
 $ bash install.sh 
 $ sudo usermod -aG docker $(whoami) && echo "Please log off/on or use sudo"
-$ sudo service docker start || sudo /etc/init.d/docker start
+$ test -z "$(ps aux | grep "docker" | grep -v grep)" && ( sudo service docker start || sudo /etc/init.d/docker start )
 $ docker run -t -i taavitani/aws-bootcamp /bin/bash
 $ echo "Press ctrl+pq to detach terminal"
 $ echo "Type 'sudo docker attach $(sudo docker ps -q)' to attach terminal to container"
