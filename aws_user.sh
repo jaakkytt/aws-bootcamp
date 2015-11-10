@@ -49,7 +49,7 @@ pwgen > /dev/null || exit
 test -f $users && awk -F ';' '/@/ {print $2}' $users | tr -d '\r' | sort | uniq | \
 	while read email;do 
 		if [ "$action" == "create" ];then
-			aws iam create-user --user-name "${email}"
+			aws iam create-user --user-name "${email}" --path "/bootcamp"
 			aws iam add-user-to-group --user-name "${email}" --group-name "${iam_group}"
 			pass="$(pwgen | head -n1)"
 			aws iam create-login-profile --user-name "${email}" --password "${pass}"
