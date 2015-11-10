@@ -46,13 +46,13 @@ for v in "${var[@]}";do
 done
 pwgen > /dev/null || exit
 
-test -f $users && awk -F ';' '/@/ {print $2}' $users | tr -d '\r' | sort | uniq | \
+test -f $users && awk -F '[,;]' '/@/ {print $2}' $users | tr -d '\r' | sort | uniq | \
 	while read email;do 
 		if [ "$action" == "create" ];then
-			aws iam create-user --user-name "${email}" --path "/bootcamp"
+			aws iam create-user --user-name "${email}" --path "/bootcamp/"
 			aws iam add-user-to-group --user-name "${email}" --group-name "${iam_group}"
 			pass="$(pwgen | head -n1)"
-			aws iam create-login-profile --user-name "${email}" --password "${pass}"
+			aws iam create-login-profile --user-name "${email}" --password "${pass}" --password-reset-required 
 			echo "${email};${pass}" >> "$upass"
 		else 
 			aws iam remove-user-from-group --group-name "${iam_group}" --user-name "${email}"
@@ -61,4 +61,4 @@ test -f $users && awk -F ';' '/@/ {print $2}' $users | tr -d '\r' | sort | uniq 
 		fi
 	done	
 
-test -f "$upass" && ( cat "$upass" && rm "$upass" )
+test -f "$upass" && ( cat "$upass" && echo "rm $upass" )
