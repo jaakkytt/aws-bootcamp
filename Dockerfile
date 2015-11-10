@@ -23,3 +23,6 @@ ADD dot.inputrc /root/.inputrc
 
 # create mount for config files
 VOLUME /root/.aws
+
+# create mount for project files
+VOLUME /root/aws-bootcamp
