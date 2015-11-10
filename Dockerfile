@@ -9,10 +9,13 @@ RUN pip3 install --no-cache-dir awscli==1.9.2 \
 
 # install tools we need for the labs
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		jq \
 		groff \
 		less \
 	&& rm -rf /var/lib/apt/lists/*
+
+RUN wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 \
+    -O /usr/local/bin/jq \
+  && chmod +x /usr/local/bin/jq
 
 # some customisations for the shell environment
 ADD dot.bashrc /root/.bashrc
