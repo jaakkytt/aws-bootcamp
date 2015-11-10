@@ -8,7 +8,7 @@ cat $upass | while read line;do
 	pass="$(echo $line | awk -F ';' '{print $2}')"
 	(
        		echo "Subject: AWS bootcamp credientials"
-       	 	echo "From: SNU <${email}>"
+       	 	echo "From: Bootcamp Team <${email}>"
        	 	echo "Content-type: text/plain"
        	 	echo "To: $email"
        	 	echo ""
