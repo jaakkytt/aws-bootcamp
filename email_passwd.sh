@@ -7,6 +7,8 @@ url="https://686359387277.signin.aws.amazon.com/console"
 cat $upass | while read line;do
 	email="$(echo $line | awk -F ';' '{print $1}')"
 	pass="$(echo $line | awk -F ';' '{print $2}')"
+	test -z "$email" && { echo "ERROR - no email"; exit 1; } 
+	test -z "$pass" && { echo "ERROR - no password"; exit 1; } 
 	(
        		echo "Subject: AWS bootcamp account"
        	 	echo "From:AWS Bootcamp Team <${sender_email}>"
@@ -28,4 +30,5 @@ cat $upass | while read line;do
        	 	echo ""
 		echo "AWS Bootcamp Team"
 	)|/usr/sbin/sendmail -t -f${sender_email}
+	echo "pass:${pass} email:${email}"
 done
