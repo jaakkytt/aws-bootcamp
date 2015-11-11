@@ -24,7 +24,7 @@ cat $upass | while read line;do
 		echo ""
        	 	echo "User Name: $email"
        	 	echo "Temporary Login Password: $pass" 
-		echo "(Note that you have to leave "I have an MFA token" unchecked.)"
+		echo "(Note that you have to leave \"I have an MFA token\" unchecked.)"
 		echo ""
 		echo "After signing in you'll be prompted to change your password."
        	 	echo ""
