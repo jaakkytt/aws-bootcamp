@@ -1,0 +1,11 @@
+{
+  "ImageId": "_REPLACE_THIS_",
+  "KeyName": "_AND_THIS_",
+  "SecurityGroups": [
+    "Bootcamp-Security-Group"
+  ],
+  "InstanceType": "t2.micro",
+  "IamInstanceProfile": {
+    "Name": "Bootcamp-S3-Access"
+  }
+}
