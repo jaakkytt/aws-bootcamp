@@ -5,11 +5,11 @@
 In the following we'll guide you through setting up the AWS tools we're going to be using in the labs. The tools are packaged in a Docker image so this boils down to just starting a container from the image and configuring your access
 credentials.
 
-## Getting Docker running on you laptop
+### Getting Docker running on you laptop
 
 For Windows 7 and OS X users--this assumes that you installed the [Docker Toolbox](https://www.docker.com/docker-toolbox) as advised. And that you already have the Docker Machine `default` created and ready to go.
 
-### Windows 7
+#### Windows 7
 
 Open PowerShell and `cd` into the Docker Toolbox folder.
 
@@ -25,7 +25,7 @@ Open PowerShell and `cd` into the Docker Toolbox folder.
 
         PS > .\docker.exe info
 
-### OS X
+#### OS X
 
 1. Open a terminal window and start the `default` Docker machine.
 
@@ -39,7 +39,7 @@ Open PowerShell and `cd` into the Docker Toolbox folder.
 
         $ docker info
 
-### Ubuntu
+#### Ubuntu
 
 1. For Linux users no horsing around with VMs required. Just make sure that the `docker` service is running.
 
@@ -49,9 +49,9 @@ Open PowerShell and `cd` into the Docker Toolbox folder.
 
         $ docker info
 
-## Start the lab environment Docker container
+### Start the lab environment Docker container
 
-### Windows 7
+#### Windows 7
 
 1. Clone the `aws-bootcamp` repo with your favorite Git client.
 
@@ -73,7 +73,7 @@ Should you exit the container shell accidentally you can start and re-enter the 
     PS > .\docker.exe start aws-bootcamp
     PS > .\docker.exe exec -i -t aws-bootcamp /bin/bash
 
-### OS X and Ubuntu
+#### OS X and Ubuntu
 
 1. Clone the `aws-bootcamp` repo.
 
