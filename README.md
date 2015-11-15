@@ -7,7 +7,7 @@ credentials.
 
 ## Getting Docker running on you laptop
 
-For Windows 7 and OS X users--this assumes that you installed the [Docker Toolbox](https://www.docker.com/docker-toolbox) as advised. And that you already have created a Docker Machine named `default` on you laptop.
+For Windows 7 and OS X users--this assumes that you installed the [Docker Toolbox](https://www.docker.com/docker-toolbox) as advised. And that you already have the Docker Machine `default` created and ready to go.
 
 ### Windows 7
 
