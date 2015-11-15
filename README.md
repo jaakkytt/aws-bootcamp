@@ -41,7 +41,7 @@ Open PowerShell and `cd` into the Docker Toolbox folder.
 
 ### Ubuntu
 
-1. Make sure that the `docker` service is running.
+1. For Linux users no horsing around with VMs required. Just make sure that the `docker` service is running.
 
     $ sudo service docker start
 
