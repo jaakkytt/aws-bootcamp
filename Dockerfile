@@ -26,3 +26,6 @@ VOLUME /root/.aws
 
 # create mount for project files
 VOLUME /root/aws-bootcamp
+
+# start shell in repo folder
+WORKDIR /root/aws-bootcamp
