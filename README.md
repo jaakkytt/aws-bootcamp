@@ -15,15 +15,15 @@ Open PowerShell and `cd` into the Docker Toolbox folder.
 
 1. Start the `default` Docker machine.
 
-    PS > .\docker-machine.exe start default
+        PS > .\docker-machine.exe start default
 
 2. Set up the environment for the Docker client. Note that you have to re-enter this command if you want to run Docker in a new PowerShell window.
 
-    PS > .\docker-machine.exe env --shell powershell default | Invoke-Expression
+        PS > .\docker-machine.exe env --shell powershell default | Invoke-Expression
 
 3. Check that Docker is working.
 
-    PS > .\docker.exe info
+        PS > .\docker.exe info
 
 ### OS X
 
