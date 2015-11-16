@@ -117,7 +117,7 @@ Windows users will have to adapt previous command for PuTTY.
 
 Now the first thing you need to do is to check that you actually have your EC2 instance correctly set up. Check if the instance has the `Bootcamp-S3-Access` role attached. If not then you have to destroy the instance and return to the previous section.
 
-**TODO** Kadi pleas test this. Untested edit.
+**TODO** Kadi please test this. Untested edit.
 
     [ec2-user@ip-172-31-25-189 ~]$ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/Bootcamp-S3-Access
 
