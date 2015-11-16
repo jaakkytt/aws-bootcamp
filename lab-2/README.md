@@ -114,8 +114,8 @@ Use a text editor to open the `credentials.csv` file you downloaded earlier. It 
 
 Start the configuration wizard and enter your Key ID and Access Key when prompted.
 
-    # aws configure
-    # aws configure
+    ~/aws-bootcamp# aws configure
+    ~/aws-bootcamp# aws configure
     AWS Access Key ID [None]: ****
     AWS Secret Access Key [None]: ****
     Default region name [None]:
@@ -123,11 +123,11 @@ Start the configuration wizard and enter your Key ID and Access Key when prompte
 
 Also set the default AWS region to `eu-central-1` (Frankfurt).
 
-    # aws configure set region eu-central-1
+    ~/aws-bootcamp# aws configure set region eu-central-1
 
 Now take a look at your configuration. It should look something like this.
 
-    # aws configure list
+    ~/aws-bootcamp# aws configure list
           Name                    Value             Type    Location
           ----                    -----             ----    --------
         profile                <not set>             None    None
@@ -135,8 +135,13 @@ Now take a look at your configuration. It should look something like this.
     secret_key      ******************* shared-credentials-file
         region             eu-central-1      config-file    ~/.aws/config
 
+## Hello World!
 
-### Find the latest Amazon Linux AMI
+And now let's make an actual API request using the CLI to make sure that your configuration is valid.
+
+    ~/aws-bootcamp# aws iam describe-regions
+
+## Find the latest Amazon Linux AMI
 
 First we need to find the latest Amazon Linux AMI. Run the provided helper script to fetch a list of all available Amazon Linux AMIs.
 
@@ -181,8 +186,3 @@ To be sure...
 
     ~/aws-bootcamp# aws ec2 describe-images --image-id ami-abcd1234 | jq '.Images[0].Description'
     "Amazon Linux AMI 2015.09.1 x86_64 HVM GP2"
-## "Hello World!"
-
-And now let's make an actual API request using the CLI to make sure that your configuration is valid.
-
-    # aws iam describe-regions
