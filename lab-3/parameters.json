@@ -1,6 +1,6 @@
 {
-  "ImageId": "_REPLACE_THIS_",
-  "KeyName": "_AND_THIS_",
+  "ImageId": "ami-bc5b48d0",
+  "KeyName": "You-Key-Pair-Name",
   "SecurityGroups": [
     "Bootcamp-Security-Group"
   ],

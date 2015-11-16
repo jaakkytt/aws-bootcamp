@@ -60,10 +60,11 @@ which values need changing
 
 file parameters.json.template
 
-replace %KEY% or put key on cmdline and skip template edit step
+Edit `lab-3/parameters.json` and update `KeyName` to your Key Pair name. Save and check that the result is valid JSON.
 
-validate with jq
-not idempotent so careful not to start multiple instances
+    ~/aws-bootcamp# cat lab-3/parameters.json | jq '.'
+
+Now launch the instance with the `run-instances` command passing the parameters file as an argument. Note that this command is not idempotent. Running this multiple times may result in multiple instances being launched.
 
     ~/aws-bootcamp# aws ec2 run-instances --cli-input-json file://lab-3/parameters.json --user-data file://lab-3/install_docker.sh --query 'Instances[0]' > instance.json
 
