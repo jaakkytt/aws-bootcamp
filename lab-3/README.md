@@ -34,17 +34,24 @@ You can check the contents of the S3 bucket by using the `ls` command. Or you co
 
 ## Review the IAM role used for S3 access
 
-example role
+We've provided you with an example IAM role for this lab: `Bootcamp-S3-Access`.
+
+    ~/aws-bootcamp# aws iam get-role --role-name Bootcamp-S3-Access
+
+An IAM role is usually just a list of policies. As the following command shows the example IAM role has one standard policy attached: `AmazonS3ReadOnlyAccess`.
+
+    ~/aws-bootcamp# aws iam list-attached-role-policies --role-name Bootcamp-S3-Access
+
+Now let's take a look at the actual policy document for `AmazonS3ReadOnlyAccess`
+
+    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3
+ReadOnlyAccess --version-id v1
+
+This policy allows read-only access to S3 buckets. This
+
 prepared ec2 role. allow read-only access to s3 buckets.
 enables if attached application running on the ec2 instance access to files stored s3 buckets. permissive for testing purposes this could be further to restrict access to a single bucket only.
 see it in action when we launch the instance
-
-First let's take a moment to have a look at the EC2 role
-
-    ~/aws-bootcamp# aws iam get-role --role-name Bootcamp-S3-Access
-    ~/aws-bootcamp# aws iam list-attached-role-policies --role-name Bootcamp-S3-Access
-
-edit template: ami, ssh key
 
 ## Launch the EC2 instance
 
