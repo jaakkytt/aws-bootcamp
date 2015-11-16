@@ -71,7 +71,7 @@ We'll return to the IAM polcy topic after you've finished launching the instance
 
 ## Launch the EC2 instance
 
-Edit [`lab-3/parameters.json`](parameters.json) and update `KeyName` to your Key Pair name. Save and check that the result is valid JSON.
+Edit [`lab-3/parameters.json`](parameters.json) and update `KeyName` to your Key Pair name. Save and check that the result is valid JSON. The IAM profile is also specified in this file.
 
     ~/aws-bootcamp# cat lab-3/parameters.json | jq '.'
 
