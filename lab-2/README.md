@@ -112,7 +112,7 @@ Should you exit the container shell accidentally you can start and re-enter the 
 
 Use a text editor to open the `credentials.csv` file you downloaded earlier. It should be pretty straightforward to parse--you'll only need the Key ID and Access Key.
 
-Start the configuration wizard and enter your Key ID and Access Key when prompted.
+Start the CLI configuration wizard and enter your Key ID and Access Key when prompted.
 
     ~/aws-bootcamp# aws configure
     ~/aws-bootcamp# aws configure
