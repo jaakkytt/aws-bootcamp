@@ -1,4 +1,4 @@
-Cloud:					A cloud is a visible mass of liquid droplets or frozen crystals.
+Cloud:					There is no cloud. It's just someone else's computer.
 
 AWS:					Amazon Web Service
 AWS access key ID & secret access key: 	A key pairs that is used to sign AWS requests
