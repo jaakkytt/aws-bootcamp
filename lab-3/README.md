@@ -44,13 +44,31 @@ An IAM role is usually just a list of policies. As the following command shows t
 
 Now let's take a look at the actual policy document for `AmazonS3ReadOnlyAccess`
 
-    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3 ReadOnlyAccess --version-id v1
+    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3 ReadOnlyAccess --version-id v1 | jq '.PolicyVersion.Document'
 
-This policy allows read-only access to S3 buckets. This
+You should see an IAM policy document that looks like this.
 
-prepared ec2 role. allow read-only access to s3 buckets.
-enables if attached application running on the ec2 instance access to files stored s3 buckets. permissive for testing purposes this could be further to restrict access to a single bucket only.
-see it in action when we launch the instance
+```javascript
+{
+  "Statement": [
+    {
+      "Action": [
+        "s3:Get*",
+        "s3:List*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ],
+  "Version": "2012-10-17"
+}
+```
+
+From this we can see how the policy is implemented. Read-only access to S3 is the result of allowing only `s3:Get*` and `s3:List*` API calls to the S3 service.
+
+As a comment this policy though suitable for our lab is too permissive. The relevant part of the policy is the `"Resource": "*"` bit. This in effect says that access is allowed to all (`*`) resources, or S3 buckets in this case. For example in a production scenario this could be narrowed down to limit access to a single bucket.
+
+We'll return to the IAM polcy topic after you've finished launching the instance.
 
 ## Launch the EC2 instance
 
