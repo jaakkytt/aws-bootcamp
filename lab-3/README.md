@@ -30,7 +30,6 @@ Now let's upload [`lab-3/hello.txt`](hello.txt) to the S3 bucket we just created
 You can check the contents of the S3 bucket by using the `ls` command. Or you could do this on the [S3 Web Console](https://console.aws.amazon.com/s3/).
 
     ~/aws-bootcamp# aws s3 ls s3://lab-3-jane-doe/
-    2015-11-12 11:03:05         14 hello.txt
 
 ## Review the IAM role used for S3 access
 
