@@ -1,17 +1,6 @@
 # AWS Bootcamp: Lab 2
 
-In this lab we'll deploy a simple Python web application that uses the Python SDK (boto3) to read data from an S3 bucket. We rely on IAM roles to provide the example application with credentials for accessing the S3 service. The instructions provided below will guide you through creating an S3 bucket and launching an EC2 instance.
-
-A demonstration/Demonstrates how to use the S3 service from an application. Note that at no point a
-
-It looks like
-
-The important part is how
-
-If that makes little sense then here's a diagram of
-create an s3 bucket and an ec2 instance
-
-Link to EC2 roles docs.
+In this lab we'll deploy a simple Python web application that uses the Python SDK (boto3) to read data from an S3 bucket. We rely on IAM roles to provide the example application with credentials for accessing the S3 service. The instructions provided below will guide you through setting up the infrastructure and running the example application.
 
 ## Create the S3 bucket and upload `hello.txt`
 
@@ -162,7 +151,7 @@ Now reload the example app page. You should see the updated contents.
 
 ## Clean-up
 
-After you're done with the demo switch back to the AWS CLI terminal window to kill the instance and delete the S3 bucket with it's contents. If you're sick of the CLI at this point you could do this using the [Web Console](https://console.aws.amazon.com/) instead. But be careful not to remove other people's stuff by mistake.
+After you're done with the lab switch back to the AWS CLI terminal window to kill the instance and delete the S3 bucket with it's contents. If you're sick of the CLI at this point you could do this using the [Web Console](https://console.aws.amazon.com/) instead. But be careful not to remove other people's stuff by mistake.
 
     ~/aws-bootcamp# aws ec2 terminate-instances --cli-input-json file://instance-ids.json
     ~/aws-bootcamp# aws s3 rm s3://lab-3-jane-doe --recursive
