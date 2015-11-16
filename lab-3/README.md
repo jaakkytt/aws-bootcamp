@@ -44,8 +44,7 @@ An IAM role is usually just a list of policies. As the following command shows t
 
 Now let's take a look at the actual policy document for `AmazonS3ReadOnlyAccess`
 
-    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3
-ReadOnlyAccess --version-id v1
+    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3 ReadOnlyAccess --version-id v1
 
 This policy allows read-only access to S3 buckets. This
 
