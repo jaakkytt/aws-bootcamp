@@ -2,6 +2,17 @@
 
 In this lab we'll deploy a simple Python web application that uses the Python SDK (boto3) to read data from an S3 bucket. We rely on IAM roles to provide the example application with credentials for accessing the S3 service. The instructions provided below will guide you through setting up the infrastructure and running the example application.
 
+# Relevant Documentation
+
+- [AWS CLI Reference:
+s3](http://docs.aws.amazon.com/cli/latest/reference/s3/index.html)
+- [AWS CLI Reference:
+s3api](http://docs.aws.amazon.com/cli/latest/reference/s3api/index.html)
+- [AWS CLI Reference:
+ec2](http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html)
+- [IAM Roles for Amazon
+EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
+
 ## Create the S3 bucket and upload `hello.txt`
 
 First we're going to create an S3 bucket. Note that bucket names have to be globally unique. So adjust the name suggested here accordingly.
