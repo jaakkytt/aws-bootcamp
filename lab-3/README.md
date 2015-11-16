@@ -2,6 +2,8 @@
 
 In this lab we'll deploy a simple Python web application that uses the Python SDK (boto3) to read data from an S3 bucket. We rely on IAM roles to provide the example application with credentials for accessing the S3 service. The instructions provided below will guide you through setting up the infrastructure and running the example application.
 
+We assume that you have the AWS CLI environment running from Lab 2. If not, please return to [Lab 2](../lab-2/) to get `aws-bootcamp` container up and running.
+
 # Relevant Documentation
 
 - [AWS CLI Reference:
@@ -109,18 +111,17 @@ Open a new terminal window an log in using your Key Pair. Don't forget the usern
 
 Windows users will have to adapt previous command for PuTTY.
 
-# EC2 role
+## IAM Role of the EC2 instance
 
+Now the first thing you need to do is to check that you actually have your EC2 instance correctly set up. Check if the instance has the `Bootcamp-S3-Access` role attached. If not then you have to destroy the instance and return to the previous section.
 
-    [ec2-user@ip-172-31-25-189 ~]$ ec2-metadata
-    ...
-    security-groups: Bootcamp-Security-Group
-    ...
+**TODO** Kadi pleas test this. Untested edit.
+
+    [ec2-user@ip-172-31-25-189 ~]$ curl http://169.254.169.254/latest/meta-data/iam/security-credentials/Bootcamp-S3-Access
+
+Another way to test this is to check AWS CLI config on the instance. You should see the Access Key and Secret Key configured.
 
     [ec2-user@ip-172-31-25-189 ~]$ export AWS_DEFAULT_REGION=eu-central-1
-
-AWS CLI running on the instance picks the IAM role up.
-
     [ec2-user@ip-172-31-25-189 ~]$ aws configure list
           Name                    Value             Type    Location
           ----                    -----             ----    --------
@@ -129,15 +130,10 @@ AWS CLI running on the instance picks the IAM role up.
     secret_key     ****************M+m5         iam-role
         region             eu-central-1              env    AWS_DEFAULT_REGION
 
+This means that you can use the AWS CLI to access the S3 bucket from the instance.
+
     [ec2-user@ip-172-31-30-157 ~]$ aws s3 ls s3://lab-3-jane-doe/
-2015-11-12 21:41:55         14 hello.txt
-
     [ec2-user@ip-172-31-25-189 ~]$ aws s3 cp s3://lab-3-jane-doe/hello.txt -
-    Hello, World!
-
-alternative. use --region option for this little test
-
-write access denied. role policy. unlike the keys used in
 
 ## Run the example application
 
@@ -157,12 +153,7 @@ You should also try `curl` to test that everything is working as expected.
 
     [ec2-user@ip-172-31-25-189 ~]$ curl -I http://localhost/
 
-Now open the example app page in you browser. It should be accessible via the public DNS name you used earlier for SSHing into the instance. You should see something like this.
-
-docker logs example-app
-
-
-load page from browser
+Now open the example app page in you browser. It should be accessible via the public DNS name you used earlier for SSHing into the instance. You should see the text from the `hello.txt` file.
 
 Open the `aws-bootcamp` folder and edit `lab-3/hello.txt`. Switch to the terminal running the AWS CLI and upload the updated file to the S3 bucket.
 
