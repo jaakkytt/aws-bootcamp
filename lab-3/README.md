@@ -10,7 +10,7 @@ s3](http://docs.aws.amazon.com/cli/latest/reference/s3/index.html)
 s3api](http://docs.aws.amazon.com/cli/latest/reference/s3api/index.html)
 - [AWS CLI Reference:
 ec2](http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html)
-- [IAM Roles for Amazon
+- [Overview of IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) - [IAM Roles for Amazon
 EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
 
 ## Create the S3 bucket and upload `hello.txt`
