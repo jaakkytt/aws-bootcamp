@@ -48,7 +48,7 @@ edit template: ami, ssh key
 
 ## Launch the EC2 instance
 
-Edit `lab-3/parameters.json` and update `KeyName` to your Key Pair name. Save and check that the result is valid JSON.
+Edit [`lab-3/parameters.json`](parameters.json) and update `KeyName` to your Key Pair name. Save and check that the result is valid JSON.
 
     ~/aws-bootcamp# cat lab-3/parameters.json | jq '.'
 
