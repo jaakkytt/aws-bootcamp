@@ -22,7 +22,7 @@ First we're going to create an S3 bucket. Note that bucket names have to be glob
       --bucket lab-3-jane-doe \
       --create-bucket-configuration LocationConstraint=eu-central-1
 
-Now let's upload `lab-3/hello.txt` to the S3 bucket we just created. This file will be used later by the example application.
+Now let's upload [`lab-3/hello.txt`](hello.txt) to the S3 bucket we just created. This file will be used later by the example application.
 
     ~/aws-bootcamp# cat lab-3/hello.txt
     ~/aws-bootcamp# aws s3 cp lab-3/hello.txt s3://lab-3-jane-doe/
