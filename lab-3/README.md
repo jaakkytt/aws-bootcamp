@@ -19,17 +19,17 @@ First we're going to create an S3 bucket. Note that bucket names have to be glob
 
     ~/aws-bootcamp# aws s3api create-bucket \
       --acl private \
-      --bucket lab-2-jane-doe \
+      --bucket lab-3-jane-doe \
       --create-bucket-configuration LocationConstraint=eu-central-1
 
-Now let's upload `lab-2/hello.txt` to the S3 bucket we just created. This file will be used later by the example application.
+Now let's upload `lab-3/hello.txt` to the S3 bucket we just created. This file will be used later by the example application.
 
-    ~/aws-bootcamp# cat lab-2/hello.txt
-    ~/aws-bootcamp# aws s3 cp lab-2/hello.txt s3://lab-2-jane-doe/
+    ~/aws-bootcamp# cat lab-3/hello.txt
+    ~/aws-bootcamp# aws s3 cp lab-3/hello.txt s3://lab-3-jane-doe/
 
 You can check the contents of the S3 bucket by using the `ls` command. Or you could do this on the [S3 Web Console](https://console.aws.amazon.com/s3/).
 
-    ~/aws-bootcamp# aws s3 ls s3://lab-2-jane-doe/
+    ~/aws-bootcamp# aws s3 ls s3://lab-3-jane-doe/
     2015-11-12 11:03:05         14 hello.txt
 
 ## Launch the EC2 instance
@@ -65,7 +65,7 @@ replace %KEY% or put key on cmdline and skip template edit step
 validate with jq
 not idempotent so careful not to start multiple instances
 
-    ~/aws-bootcamp# aws ec2 run-instances --cli-input-json file://lab-2/parameters.json --user-data file://lab-2/install_docker.sh --query 'Instances[0]' > instance.json
+    ~/aws-bootcamp# aws ec2 run-instances --cli-input-json file://lab-3/parameters.json --user-data file://lab-3/install_docker.sh --query 'Instances[0]' > instance.json
 
     ~/aws-bootcamp# cat instance.json | jq '{ InstanceIds: [.InstanceId] }' > instance-ids.json
     ~/aws-bootcamp# cat instance-ids.json
@@ -81,7 +81,7 @@ wait
 
 create tags. replace the instance id in the resources param.
 
-    ~/aws-bootcamp# aws ec2 create-tags --resources i-3a0fad86 --tags Key=Name,Value=Lab-2-Jane-Doe
+    ~/aws-bootcamp# aws ec2 create-tags --resources i-3a0fad86 --tags Key=Name,Value=Lab-3-Jane-Doe
 
 get instance public dns. copy the instance name
 
@@ -119,10 +119,10 @@ AWS CLI running on the instance picks the IAM role up.
     secret_key     ****************M+m5         iam-role
         region             eu-central-1              env    AWS_DEFAULT_REGION
 
-    [ec2-user@ip-172-31-30-157 ~]$ aws s3 ls s3://lab-2-jane-doe/
+    [ec2-user@ip-172-31-30-157 ~]$ aws s3 ls s3://lab-3-jane-doe/
 2015-11-12 21:41:55         14 hello.txt
 
-    [ec2-user@ip-172-31-25-189 ~]$ aws s3 cp s3://lab-2-jane-doe/hello.txt -
+    [ec2-user@ip-172-31-25-189 ~]$ aws s3 cp s3://lab-3-jane-doe/hello.txt -
     Hello, World!
 
 alternative. use --region option for this little test
@@ -137,7 +137,7 @@ First, check that Docker is running.
 
 Now we're ready to run the Python web application. Application This starts a new container in the background, listening on port 80.
 
-    [ec2-user@ip-172-31-25-189 ~]$ docker run -d -p 80:80 --name example-app -e EXAMPLEAPP_S3_BUCKET=lab-2-jane-doe taavitani/aws-bootcamp-example-app
+    [ec2-user@ip-172-31-25-189 ~]$ docker run -d -p 80:80 --name example-app -e EXAMPLEAPP_S3_BUCKET=lab-3-jane-doe taavitani/aws-bootcamp-example-app
 
 If this works as expected then you should see `example-app` running.
 
@@ -154,9 +154,9 @@ docker logs example-app
 
 load page from browser
 
-Open the `aws-bootcamp` folder and edit `lab-2/hello.txt`. Switch to the terminal running the AWS CLI and upload the updated file to the S3 bucket.
+Open the `aws-bootcamp` folder and edit `lab-3/hello.txt`. Switch to the terminal running the AWS CLI and upload the updated file to the S3 bucket.
 
-    ~/aws-bootcamp# aws s3 cp lab-2/hello.txt s3://lab-2-jane-doe/
+    ~/aws-bootcamp# aws s3 cp lab-3/hello.txt s3://lab-3-jane-doe/
 
 Now reload the example app page. You should see the updated contents.
 
@@ -165,5 +165,5 @@ Now reload the example app page. You should see the updated contents.
 After you're done with the demo switch back to the AWS CLI terminal window to kill the instance and delete the S3 bucket with it's contents. If you're sick of the CLI at this point you could do this using the [Web Console](https://console.aws.amazon.com/) instead. But be careful not to remove other people's stuff by mistake.
 
     ~/aws-bootcamp# aws ec2 terminate-instances --cli-input-json file://instance-ids.json
-    ~/aws-bootcamp# aws s3 rm s3://lab-2-jane-doe --recursive
-    ~/aws-bootcamp# aws s3api delete-bucket --bucket lab-2-jane-doe
+    ~/aws-bootcamp# aws s3 rm s3://lab-3-jane-doe --recursive
+    ~/aws-bootcamp# aws s3api delete-bucket --bucket lab-3-jane-doe
