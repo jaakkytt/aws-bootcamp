@@ -103,14 +103,11 @@ And finally query the public DNS of yout instance.
 
 This is optional but if you'd like then you could switch to the [EC2 Web Console](https://eu-central-1.console.aws.amazon.com/ec2/) at this point and check the results of your latest efforts.
 
-Use the SSH key (.pem file) you downloaded earlier
+Open a new terminal window an log in using your Key Pair. Don't forget the username--`ec2user`.
 
-Open a new terminal window/ putty
-Open a new terminal window or
+    $ ssh -i /path/to/Jane-Doe.pem ec2-user@ec2-52-28-3-17.eu-central-1.compute.amazonaws.com
 
-ssh -i ~/path/to/you/key_pair.pem ec2-user@ec2-52-28-3-17.eu-central-1.compute.amazonaws.com
-
-Windows start PuTTY
+Windows users will have to adapt previous command for PuTTY.
 
 # EC2 role
 
