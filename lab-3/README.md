@@ -19,6 +19,8 @@ EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2
 
 First we're going to create an S3 bucket. Note that bucket names have to be globally unique. So adjust the name suggested here accordingly.
 
+Just to remind you that the shell prompt `~/aws-bootcamp#` means that these examples are meant to be executed in the `aws-bootcamp` Docker container.
+
     ~/aws-bootcamp# aws s3api create-bucket \
       --acl private \
       --bucket lab-3-jane-doe \
