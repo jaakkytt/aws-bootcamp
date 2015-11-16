@@ -1,4 +1,4 @@
-# AWS Bootcamp: Lab 2
+# AWS Bootcamp Lab 3
 
 In this lab we'll deploy a simple Python web application that uses the Python SDK (boto3) to read data from an S3 bucket. We rely on IAM roles to provide the example application with credentials for accessing the S3 service. The instructions provided below will guide you through setting up the infrastructure and running the example application.
 
