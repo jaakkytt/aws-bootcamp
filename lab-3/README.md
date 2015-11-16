@@ -97,7 +97,7 @@ Tag the instance just in case you want to locate this later on the Web Console.
 
     ~/aws-bootcamp# aws ec2 create-tags --resources i-3a0fad86 --tags Key=Name,Value=Lab-3-Jane-Doe
 
-And finally query the public DNS of yout instance.
+And finally query the public DNS of your instance.
 
     ~/aws-bootcamp# aws ec2 describe-instances --cli-input-json file://instance-ids.json | jq -r '.Reservations[].Instances[].PublicDnsName'
 
