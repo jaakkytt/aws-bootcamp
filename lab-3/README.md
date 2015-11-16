@@ -32,7 +32,7 @@ You can check the contents of the S3 bucket by using the `ls` command. Or you co
     ~/aws-bootcamp# aws s3 ls s3://lab-3-jane-doe/
     2015-11-12 11:03:05         14 hello.txt
 
-## Launch the EC2 instance
+## Review the IAM role used for S3 access
 
 example role
 prepared ec2 role. allow read-only access to s3 buckets.
@@ -46,27 +46,17 @@ First let's take a moment to have a look at the EC2 role
 
 edit template: ami, ssh key
 
-launch ec2 instance
-user_data: docker provisioning
-
-how to find out key name.
-You'll need the name of the Key Pair you created
-
-expand on parameters used to launch the instance
-
-table
-
-which values need changing
-
-file parameters.json.template
+## Launch the EC2 instance
 
 Edit `lab-3/parameters.json` and update `KeyName` to your Key Pair name. Save and check that the result is valid JSON.
 
     ~/aws-bootcamp# cat lab-3/parameters.json | jq '.'
 
-Now launch the instance with the `run-instances` command passing the parameters file as an argument. Note that this command is not idempotent. Running this multiple times may result in multiple instances being launched.
+Now launch the instance with the `run-instances` command passing the parameters file as an argument. Note that this command is not idempotent. Running this multiple times may result in multiple instances being launched. The user data file used here [`lab-3/install_docker.sh`](install_docker.sh) is a simple shell script that installs docker.
 
     ~/aws-bootcamp# aws ec2 run-instances --cli-input-json file://lab-3/parameters.json --user-data file://lab-3/install_docker.sh --query 'Instances[0]' > instance.json
+
+Take a look at the `instance.json` file that was created. And extract the id of you instance like this. We're going to use the file with the instance id as input for a couple of commands.
 
     ~/aws-bootcamp# cat instance.json | jq '{ InstanceIds: [.InstanceId] }' > instance-ids.json
     ~/aws-bootcamp# cat instance-ids.json
@@ -76,20 +66,19 @@ Now launch the instance with the `run-instances` command passing the parameters 
       ]
     }
 
-wait
+Wait for the instance to start running. If this command returns immediately then the instance has already booted.
 
     ~/aws-bootcamp# aws ec2 wait instance-running --cli-input-json file://instance-ids.json
 
-create tags. replace the instance id in the resources param.
+Tag the instance just in case you want to locate this later on the Web Console.
 
     ~/aws-bootcamp# aws ec2 create-tags --resources i-3a0fad86 --tags Key=Name,Value=Lab-3-Jane-Doe
 
-get instance public dns. copy the instance name
+And finally query the public DNS of yout instance.
 
     ~/aws-bootcamp# aws ec2 describe-instances --cli-input-json file://instance-ids.json | jq -r '.Reservations[].Instances[].PublicDnsName'
-  ec2-52-28-3-17.eu-central-1.compute.amazonaws.com
 
-ec2 web console url https://eu-central-1.console.aws.amazon.com/ec2/
+This is optional but if you'd like then you could switch to the [EC2 Web Console](https://eu-central-1.console.aws.amazon.com/ec2/) at this point and check the results of your latest efforts.
 
 Use the SSH key (.pem file) you downloaded earlier
 
