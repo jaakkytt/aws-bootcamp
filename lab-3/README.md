@@ -79,7 +79,7 @@ Now launch the instance with the `run-instances` command passing the parameters 
 
     ~/aws-bootcamp# aws ec2 run-instances --cli-input-json file://lab-3/parameters.json --user-data file://lab-3/install_docker.sh --query 'Instances[0]' > instance.json
 
-Take a look at the `instance.json` file that was created. And extract the id of you instance like this. We're going to use the file with the instance id as input for a couple of commands.
+Take a look at the `instance.json` file that was created. And extract the id of you instance like in the following. We're going to use the file with the instance id as input for a couple of commands.
 
     ~/aws-bootcamp# cat instance.json | jq '{ InstanceIds: [.InstanceId] }' > instance-ids.json
     ~/aws-bootcamp# cat instance-ids.json
