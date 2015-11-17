@@ -50,7 +50,7 @@ An IAM role is usually just a list of policies. As the following command shows t
 
 Now let's take a look at the actual policy document for `AmazonS3ReadOnlyAccess`
 
-    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3 ReadOnlyAccess --version-id v1 | jq '.PolicyVersion.Document'
+    ~/aws-bootcamp# aws iam get-policy-version --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess --version-id v1 | jq '.PolicyVersion.Document'
 
 You should see an IAM policy document that looks like this.
 
